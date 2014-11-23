@@ -25,7 +25,7 @@
         
         NSError *error;
         
-        context.localizedFallbackTitle = @"";// 取消"Enter Password"按钮(不能设为nil)
+        context.localizedFallbackTitle = @"";// Cancel "Enter Password" option(cannot set as nil)
         
         if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
             [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:NSLocalizedString(@"Use Touch ID to log in.", nil) reply:^(BOOL success, NSError *error) {
