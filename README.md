@@ -16,3 +16,5 @@ You can uncomment the code below and see what happens:
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .5f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
     ...
 });
+
+The issue happens when you change current view controller or window in the reply block of evaluatePolicy:localizedReason:reply:.
