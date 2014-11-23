@@ -17,4 +17,4 @@ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .5f * NSEC_PER_SEC), dispatch_ge
     ...
 });
 
-The issue happens when you change current view controller or window in the reply block of evaluatePolicy:localizedReason:reply:.
+The issue happens when you use Touch ID immediately after the app starts and change current view controller or window in the reply block of evaluatePolicy:localizedReason:reply:.
