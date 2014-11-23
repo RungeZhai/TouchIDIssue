@@ -28,14 +28,16 @@
         context.localizedFallbackTitle = @"";// Cancel "Enter Password" option(cannot set as nil)
         
         if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-            [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:NSLocalizedString(@"Use Touch ID to log in.", nil) reply:^(BOOL success, NSError *error) {
-                if (success) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        ViewController *vc2 = [[ViewController alloc] init];
-                        [self.navigationController pushViewController:vc2 animated:YES];
-                    });
-                }
-            }];
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .5f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:NSLocalizedString(@"Use Touch ID to log in.", nil) reply:^(BOOL success, NSError *error) {
+                    if (success) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            ViewController *vc2 = [[ViewController alloc] init];
+                            [self.navigationController pushViewController:vc2 animated:YES];
+                        });
+                    }
+                }];
+//            });
         } else {
             NSLog(@"Touch ID is not available: %@", error);
         }
