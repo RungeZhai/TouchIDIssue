@@ -9,7 +9,7 @@ Put your finger on the touch area and then start this application. You will find
 
 Here is the solution I use:
 
-Wait a while after the availablility check of Touch ID.
+Wait a while after the availablility check(canEvaluatePolicy:error:) of Touch ID.
 
 You can uncomment the code below and see what happens:
 
