@@ -9,12 +9,13 @@ Put your finger on the touch area and then start this application (with your fin
 
 Here is the solution I use:
 
-Wait a while after the availablility check(canEvaluatePolicy:error:) of Touch ID.
+Wait a while after the availablility check(`canEvaluatePolicy:error:`) of Touch ID.
 
 You can uncomment the code below and see what happens:
-
+```
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .5f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
     ...
 });
+```
 
-The issue happens when you use Touch ID immediately after the app launches and change current view controller or window in the reply block of evaluatePolicy:localizedReason:reply:.
+The issue happens when you use Touch ID immediately after the app launches and change current view controller or window in the reply block of `evaluatePolicy:localizedReason:reply:`.
