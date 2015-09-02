@@ -17,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
     if ([[self.navigationController.viewControllers firstObject] isEqual:self]) {
         self.navigationItem.title = @"ViewController1";
@@ -28,6 +27,7 @@
         context.localizedFallbackTitle = @"";// Cancel "Enter Password" option(cannot set as nil)
         
         if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+            // Uncomment the following code to fix the bug
 //            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .5f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:NSLocalizedString(@"Use Touch ID to log in.", nil) reply:^(BOOL success, NSError *error) {
                     if (success) {
