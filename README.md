@@ -1,7 +1,7 @@
 TouchIDIssue
 ============
 
-An Issue I found when developing apps that using TouchID to auto login or unlock.
+An Issue I found when developing apps that use TouchID to auto login or unlock.
 
 You can reproduce simply like this:
 
